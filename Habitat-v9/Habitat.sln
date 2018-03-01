@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
-VisualStudioVersion = 15.0.26430.16
+VisualStudioVersion = 15.0.27130.2026
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sitecore.Foundation.SitecoreExtensions", "src\foundation\SitecoreExtensions\code\Sitecore.Foundation.SitecoreExtensions.csproj", "{B535703F-8D07-4F23-A533-2974BB4CC7B1}"
 EndProject
@@ -143,7 +143,6 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Dev", "Dev", "{872BBC9D-C867-463F-8C5B-9D1823AA9552}"
 	ProjectSection(SolutionItems) = preProject
 		src\Project\Common\code\App_Config\Environment\Project\Common.Dev.config = src\Project\Common\code\App_Config\Environment\Project\Common.Dev.config
-		src\Project\Habitat\code\App_Config\Environment\Project\Habitat.Dev.config = src\Project\Habitat\code\App_Config\Environment\Project\Habitat.Dev.config
 	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Installer", "Installer", "{72A20BA8-5FA6-4599-97B0-FB82F84DCDBA}"
@@ -480,5 +479,8 @@ Global
 		{72A20BA8-5FA6-4599-97B0-FB82F84DCDBA} = {D2CBE02E-6AA7-4343-9A01-891F971A17F5}
 		{622EBD86-43A5-4857-965C-1724F714012A} = {72A20BA8-5FA6-4599-97B0-FB82F84DCDBA}
 		{4B8BD204-FCED-4A4C-BD57-42B09B98745E} = {F347A85D-6FF5-4927-B5CF-54D81954E6A2}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {59A825F8-8A45-418A-AB97-C2B404FEB272}
 	EndGlobalSection
 EndGlobal
