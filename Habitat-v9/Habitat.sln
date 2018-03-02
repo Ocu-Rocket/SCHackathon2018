@@ -143,6 +143,7 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Dev", "Dev", "{872BBC9D-C867-463F-8C5B-9D1823AA9552}"
 	ProjectSection(SolutionItems) = preProject
 		src\Project\Common\code\App_Config\Environment\Project\Common.Dev.config = src\Project\Common\code\App_Config\Environment\Project\Common.Dev.config
+		src\Project\Habitat\code\App_Config\Environment\Project\Habitat.Dev.config = src\Project\Habitat\code\App_Config\Environment\Project\Habitat.Dev.config
 	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Installer", "Installer", "{72A20BA8-5FA6-4599-97B0-FB82F84DCDBA}"
