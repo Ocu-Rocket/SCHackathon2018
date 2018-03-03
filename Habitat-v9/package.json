@@ -5,8 +5,9 @@
   "main": "gulpfile.js",
   "dependencies": {
     "async": "^1.5.2",
+    "colors": "^1.1.2",
     "glob": "^7.0.3",
-    "gulp": "^3.9.0",
+    "gulp": "^3.9.1",
     "gulp-autoprefixer": "^3.1.0",
     "gulp-debug": "^2.1.2",
     "gulp-exec": "^2.1.2",
@@ -19,6 +20,7 @@
     "gulp-sass": "^3.1.0",
     "gulp-util": "^3.0.7",
     "gulp-watch": "^4.3.5",
+    "npm": "^5.7.1",
     "rimraf": "^2.4.3",
     "run-sequence": "^1.1.4",
     "vinyl": "^1.1.0",

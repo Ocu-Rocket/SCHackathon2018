@@ -13,7 +13,8 @@ module.exports = function () {
     buildVerbosity: "minimal",
     buildPlatform: "Any CPU",
     publishPlatform: "AnyCpu",
-    runCleanBuilds: false
+    runCleanBuilds: false,
+    serializationYmlPath: "C:\\Serialization"
   };
   return config;
 }

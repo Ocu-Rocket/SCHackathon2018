@@ -16,6 +16,8 @@ var path = require("path");
 var rimrafDir = require("rimraf");
 var rimraf = require("gulp-rimraf");
 var xmlpoke = require("xmlpoke");
+var log = require('fancy-log');
+var colors = require('colors');
 
 var config;
 if (fs.existsSync("./gulp-config.js.user")) {
@@ -38,7 +40,7 @@ gulp.task("default",
             "Nuget-Restore",
             "Publish-All-Projects",
             "Apply-Xml-Transform",
-            "Sync-Unicorn",
+            "Publish - Unicorn - Items",
             "Publish-Transforms",
             callback);
     });
@@ -125,12 +127,12 @@ gulp.task("Apply-Xml-Transform",
     });
 
 gulp.task("Sync-Unicorn",
-    function(callback) {
+    function (callback) {
         var options = {};
         options.siteHostName = habitat.getSiteUrl();
         options.authenticationConfigFile = config.websiteRoot + "/App_config/Include/Unicorn.SharedSecret.config";
 
-        unicorn(function() { return callback() }, options);
+        unicorn(function () { return callback() }, options);
     });
 
 
@@ -138,6 +140,43 @@ gulp.task("Publish-Transforms",
     function() {
         return gulp.src("./src/**/code/**/*.xdt")
             .pipe(gulp.dest(config.websiteRoot + "/temp/transforms"));
+    });
+
+gulp.task("Publish-Unicorn-Foundation-Items",
+    function () {
+        log(colors.rainbow("Copying Foundation YML files from GIT to Sitecore Serialization folder..."));
+        return gulp.src(['./src/Foundation/**/serialization/**/*.yml'])
+            .on("data", function (file) { log(colors.blue(file.path)) })
+            .pipe(gulp.dest(config.serializationYmlPath + "/Foundation/"))
+            .on('end', function () { log('Done!'.green); });
+    });
+
+gulp.task("Publish-Unicorn-Feature-Items",
+    function () {
+        log(colors.rainbow("Copying Feature YML files from GIT to Sitecore Serialization folder..."));
+        return gulp.src(['./src/Feature/**/serialization/**/*.yml'])
+            .on("data", function (file) { log(colors.blue(file.path)) })
+            .pipe(gulp.dest(config.serializationYmlPath + "/Feature/"))
+            .on('end', function () { log('Done!'.green); });
+    });
+
+gulp.task("Publish-Unicorn-Project-Items",
+    function () {
+        log(colors.rainbow("Copying Project YML files from GIT to Sitecore Serialization folder..."));
+        return gulp.src(['./src/Project/**/serialization/**/*.yml'])
+            .on("data", function (file) { log(colors.blue(file.path)) })
+            .pipe(gulp.dest(config.serializationYmlPath + "/Project/"))
+            .on('end', function () { log('Done!'.green); });
+    });
+
+gulp.task("Publish-Unicorn-Items",
+    function (callback) {
+        return runSequence(
+            "Publish-Unicorn-Foundation-Items",
+            "Publish-Unicorn-Feature-Items",
+            "Publish-Unicorn-Project-Items",
+            "Sync-Unicorn",
+            callback);
     });
 
 /*****************************
